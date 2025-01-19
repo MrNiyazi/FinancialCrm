@@ -82,5 +82,12 @@ namespace FinancialCrm
 			dataGridView1.DataSource = values2;
 
 		}
+
+		private void btnBanksForm_Click(object sender, EventArgs e)
+		{
+			FrmBanks frm = new FrmBanks();
+			frm.Show();
+			this.Hide();
+		}
 	}
 }
