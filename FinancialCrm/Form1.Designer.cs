@@ -29,12 +29,18 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.lblBillingTitle = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.lblBillAmount = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.lblLastBankProcessAmount = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.lblTotalPrice = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -48,10 +54,20 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.panel5.SuspendLayout();
 			this.panel4.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+			this.panel2.SuspendLayout();
+			this.panel6.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel5
@@ -77,10 +93,10 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label4.Location = new System.Drawing.Point(12, 60);
+			this.label4.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label4.Location = new System.Drawing.Point(0, 42);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(75, 24);
+			this.label4.Size = new System.Drawing.Size(153, 49);
 			this.label4.TabIndex = 10;
 			this.label4.Text = "0000.00";
 			// 
@@ -88,7 +104,7 @@
 			// 
 			this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
 			this.panel4.Controls.Add(this.label4);
-			this.panel4.Controls.Add(this.label3);
+			this.panel4.Controls.Add(this.lblLastBankProcessAmount);
 			this.panel4.Location = new System.Drawing.Point(689, 16);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(223, 130);
@@ -104,15 +120,15 @@
 			this.lblBillAmount.TabIndex = 10;
 			this.lblBillAmount.Text = "0000.00 tl";
 			// 
-			// label3
+			// lblLastBankProcessAmount
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label3.Location = new System.Drawing.Point(0, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(93, 24);
-			this.label3.TabIndex = 9;
-			this.label3.Text = "İş Bankası";
+			this.lblLastBankProcessAmount.AutoSize = true;
+			this.lblLastBankProcessAmount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.lblLastBankProcessAmount.Location = new System.Drawing.Point(0, 0);
+			this.lblLastBankProcessAmount.Name = "lblLastBankProcessAmount";
+			this.lblLastBankProcessAmount.Size = new System.Drawing.Size(157, 24);
+			this.lblLastBankProcessAmount.TabIndex = 9;
+			this.lblLastBankProcessAmount.Text = "Gelen Son Havale";
 			// 
 			// panel3
 			// 
@@ -262,11 +278,86 @@
 			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
+			// chart1
+			// 
+			chartArea1.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea1);
+			legend1.Name = "Legend1";
+			this.chart1.Legends.Add(legend1);
+			this.chart1.Location = new System.Drawing.Point(257, 288);
+			this.chart1.Name = "chart1";
+			series1.ChartArea = "ChartArea1";
+			series1.Legend = "Legend1";
+			series1.Name = "Series1";
+			this.chart1.Series.Add(series1);
+			this.chart1.Size = new System.Drawing.Size(379, 257);
+			this.chart1.TabIndex = 14;
+			this.chart1.Text = "chart1";
+			// 
+			// chart2
+			// 
+			chartArea2.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chart2.Legends.Add(legend2);
+			this.chart2.Location = new System.Drawing.Point(657, 288);
+			this.chart2.Name = "chart2";
+			series2.ChartArea = "ChartArea1";
+			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series2.Legend = "Legend1";
+			series2.Name = "Faturalar";
+			this.chart2.Series.Add(series2);
+			this.chart2.Size = new System.Drawing.Size(379, 257);
+			this.chart2.TabIndex = 15;
+			this.chart2.Text = "chart2";
+			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel2.Controls.Add(this.label1);
+			this.panel2.Location = new System.Drawing.Point(257, 236);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(379, 46);
+			this.panel2.TabIndex = 16;
+			// 
+			// panel6
+			// 
+			this.panel6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			this.panel6.Controls.Add(this.label3);
+			this.panel6.Location = new System.Drawing.Point(657, 236);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(379, 46);
+			this.panel6.TabIndex = 17;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.Location = new System.Drawing.Point(14, 9);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(286, 21);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Bankalar ve Hesaplarındaki para miktarı";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label3.Location = new System.Drawing.Point(3, 9);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(312, 21);
+			this.label3.TabIndex = 1;
+			this.label3.Text = "Ödenen ve Ödenmesi Gereken  para miktarı";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(920, 557);
+			this.ClientSize = new System.Drawing.Size(1048, 557);
+			this.Controls.Add(this.panel6);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.chart2);
+			this.Controls.Add(this.chart1);
 			this.Controls.Add(this.panel5);
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.panel3);
@@ -281,6 +372,12 @@
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			this.panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.panel6.ResumeLayout(false);
+			this.panel6.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -292,7 +389,7 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Label lblBillAmount;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label lblLastBankProcessAmount;
 		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.Label lblTotalPrice;
 		private System.Windows.Forms.Label label2;
@@ -306,6 +403,12 @@
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Timer timer1;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel panel6;
+		private System.Windows.Forms.Label label3;
 	}
 }
 
